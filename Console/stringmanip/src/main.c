@@ -6,10 +6,14 @@
 int main(void)
 {
 	string str = String_New(10);
-	string str2 = String_New(4);
 
-	String_Replace(str, "he");
-	String_Concat(str, "llo");
+	String_Replace(str, "Hello, World !");
+ 
+	String_UpperCase(str);
+
+	printf("%s\n", str);
+
+	String_LowerCase(str);
 	printf("%s\n", str);
 
 	String_Destroy(str);

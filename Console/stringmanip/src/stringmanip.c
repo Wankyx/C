@@ -68,5 +68,30 @@ void String_Concat(string str, string to_concat)
 	{
 		*(str+i) = *(to_concat+j);
 	}
+}
+void String_UpperCase(string str)
+{
+	int i = 0;
+	int length = String_Length(str);
 
+	for(i = 0; i < length; i++)
+	{
+		if(*(str+i) >= 97 && *(str+i) <= 122)
+		{
+			*(str+i) -= 32;
+		}
+	}
+}
+void String_LowerCase(string str)
+{
+	int i = 0;
+	int length = String_Length(str);
+
+	for(i = 0; i < length; i++)
+	{
+		if(*(str+i) >= 65 && *(str+i) <= 90)
+		{
+			*(str+i) += 32;
+		}
+	}
 }
