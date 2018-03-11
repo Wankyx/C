@@ -164,16 +164,15 @@ int main(int argc, char** argv)
 				}
 				break;
 		}
-
-		if( (snake_body[0].x + snake_body[0].w) >= width)
+ 		if( (snake_body[0].x + snake_body[0].w) > width)
 		{
 			close = SDL_TRUE;
 		}
-		else if ( (snake_body[0].y + snake_body[0].h) >= height) 
+		else if ( (snake_body[0].y + snake_body[0].h) > height) 
 		{
 			close = SDL_TRUE;
 		}
-		else if (snake_body[0].w <= 0 || snake_body[0].h <= 0)
+		else if (snake_body[0].x < 0 || snake_body[0].y < 0)
 		{
 			close = SDL_TRUE;
 		}
