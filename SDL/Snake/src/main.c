@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define TILES 30
+#define TILES 100
 
 int main(int argc, char** argv)
 {
@@ -32,6 +32,8 @@ int main(int argc, char** argv)
  
     
     /*********************************************************/
+
+
 	Uint32 length = 0;
 	Uint32 tiles = 0;
 	Uint32 vx = 25;
@@ -103,8 +105,10 @@ int main(int argc, char** argv)
 	while(!close || length == 30)
 	{
 		SDL_PollEvent(&event);
-		SDL_Delay(100);
 
+		 
+		SDL_Delay(80);
+	 
 		switch(event.type)
 		{
 			case SDL_QUIT:
@@ -127,7 +131,7 @@ int main(int argc, char** argv)
 								key[1] = SDL_FALSE;
 								key[2] = SDL_FALSE;
 								key[3] = SDL_FALSE;
-							}
+						 	}
 						 
 							break;
 						case SDLK_DOWN:
@@ -137,7 +141,7 @@ int main(int argc, char** argv)
 								key[1] = SDL_TRUE;
 								key[2] = SDL_FALSE;
 								key[3] = SDL_FALSE;
-							}
+ 							}
 					 
 							break;
 						case SDLK_RIGHT:
@@ -147,7 +151,7 @@ int main(int argc, char** argv)
 								key[1] = SDL_FALSE;
 								key[2] = SDL_TRUE;
 								key[3] = SDL_FALSE;
-							}
+ 							}
 
 							break;
 						case SDLK_LEFT:
@@ -157,7 +161,7 @@ int main(int argc, char** argv)
 								key[1] = SDL_FALSE;
 								key[2] = SDL_FALSE;
 								key[3] = SDL_TRUE;	
-							}	
+ 							}	
 						 						
 							break;
 					}
