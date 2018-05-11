@@ -203,6 +203,7 @@ SDL_bool Pong_play(Video* video, Player* first_player, Player* second_player ,Ba
 			{
 				case SDL_QUIT:
 					video->quit = SDL_TRUE;
+					return_menu = SDL_FALSE;
 					break;
 				case SDL_KEYDOWN:
 					
@@ -276,12 +277,11 @@ SDL_bool Pong_play(Video* video, Player* first_player, Player* second_player ,Ba
 					ball->position.x = (video->width / 2) - (ball->position.w / 2);
 					ball->position.y = (video->height / 2) - (ball->position.h / 2);
 					ball->shoot = SDL_TRUE;
- 					ball->angle = rand() % 180;
+ 					ball->angle = rand() % 180;  // RANDOM ANGLE 0 AND 180
 					ball->speed = 3;
 					ball->direction = rand() % 2;
 					
-					ball->vx = ball->speed * cos(ball->angle / 180 * M_PI);
-					ball->vy = ball->speed * sin(ball->angle * M_PI / 180);
+					 
 					
 					first_player->position.y = video->height / 2;
 					second_player->position.y = video->height / 2;

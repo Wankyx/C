@@ -6,7 +6,7 @@ StateMenu Menu_Selection(Video* video)
 {
 	char* path[STRING_MEMORY_ALLOCATION] = {"resources/menu_start.bmp", "resources/menu_score.bmp", "resources/menu_rules.bmp", "resources/menu_about.bmp", "resources/menu_quit.bmp"};
 	StateMenu choice = START;
-	
+	SDL_bool wm_state = SDL_FALSE;
 	while(!video->quit)
 	{
 		while(SDL_PollEvent(&video->event))
@@ -19,11 +19,29 @@ StateMenu Menu_Selection(Video* video)
 				case SDL_KEYDOWN:
 					switch(video->event.key.keysym.sym)
 					{
+						case SDLK_F11:
+							if(!wm_state)
+							{
+								wm_state = SDL_TRUE;
+
+								if (SDL_SetWindowFullscreen(video->window, SDL_WINDOW_FULLSCREEN) < 0)
+								{
+									SDL_Log("SDL can't set window to fullscreen : %s\n", SDL_GetError());
+								}
+								SDL_Log("quit : %d\n", video->quit);
+ 							}
+							else 
+							{
+								wm_state = SDL_FALSE;
+								if (SDL_SetWindowFullscreen(video->window, 0) < 0)
+								{
+									SDL_Log("SDL can't set window to fullscreen : %s\n", SDL_GetError());
+								}
+							} 							
+  							break;
 						case SDLK_UP:
-							
 							if(choice > START)
-								choice --;
-									
+								choice --;	
 							break;
 						case SDLK_DOWN:
 							if(choice < QUIT)

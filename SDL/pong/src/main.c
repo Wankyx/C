@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 	
 	StateMenu choice;
 	
-	Video_SetIcon(&video, "resources/icon.jpg");
+	Video_SetIcon(&video, "resources/icon.jpg");	
 
 	if(video.failure)
 	{
@@ -24,9 +24,6 @@ int main(int argc, char* argv[])
 	}
 	
 	SDL_ShowCursor(SDL_DISABLE);
-	
-	
-
   	
 	while(!video.quit)
 	{
@@ -35,7 +32,7 @@ int main(int argc, char* argv[])
 		switch(choice)
 		{
 			case START:
-				first_player = Player_Create(&video, "Player 1", 10, video.height / 2, 10, 100);
+ 				first_player = Player_Create(&video, "Player 1", 10, video.height / 2, 10, 100);
 				second_player = Player_Create(&video, "Player 2", (video.width - 20)- (10/2), (video.height / 2) - (10/2), 10, 100);
 				ball = Ball_Create(&video, video.width/ 2, video.height/2, 10, 10);
 				
@@ -48,8 +45,10 @@ int main(int argc, char* argv[])
 				}
 				else 
 				{
+ 
 					video.quit = SDL_FALSE;
 					already_play = SDL_TRUE;
+					
 					if(Pong_play(&video, &first_player, &second_player, &ball))
 					{
 						video.quit = SDL_FALSE;

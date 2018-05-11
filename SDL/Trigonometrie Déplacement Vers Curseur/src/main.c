@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 
 
 	SDL_Texture* texture = NULL;
-	SDL_Rect geometric_shape = {200, 200, 0, 0};
+	SDL_Rect geometric_shape = {400 / 2, 400/2, 0, 0};
 
 
 	/******************************************************************/
@@ -22,8 +22,8 @@ int main(int argc, char* argv[])
 	float cos_x = 0.0f;
 	float sin_y = 0.0f;
 
-	float vx = 2.5;
-	float vy = 2.5;
+	float vx = 12;
+	float vy = 12;
 
 
 	/******************************************************************/
@@ -79,9 +79,10 @@ int main(int argc, char* argv[])
 			case SDL_MOUSEBUTTONDOWN:
 				if(event.button.button == SDL_BUTTON_LEFT)
 				{
-					x = event.button.x - geometric_shape.x;
-					y = event.button.y - geometric_shape.y; 
+					x = event.button.x - geometric_shape.x; // pour avoir bonne distance 
+					y = event.button.y - geometric_shape.y;  
 					distance = sqrt(pow(x, 2) + pow(y, 2));
+					
 					
 
 					cos_x = x / distance;
@@ -94,7 +95,6 @@ int main(int argc, char* argv[])
 				}
 				break;
 		}
-
 
 		geometric_shape.x += cos_x * vx;
 		geometric_shape.y += sin_y * vy;
